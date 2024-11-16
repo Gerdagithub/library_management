@@ -5,6 +5,6 @@ app_name = 'books'  # This is for namespacing your URLs
 
 urlpatterns = [
     path('add/', views.add_book, name='add_book'),
-    path('search/', views.search_books, name='search_books'),  # Path for a custom search view
+    # path('search/', views.search_books, name='search_books'),  # Path for a custom search view
     # Add other URL patterns for your books app here
 ]
