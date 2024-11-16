@@ -21,11 +21,13 @@ class SearchForm(forms.Form):
         error_messages={
             'required': ''  # Suppress the error message for required field
         },
+        label="Search Field" #
     )
     search_query = forms.CharField(
         max_length=255,
         error_messages={
             'required': ''  # Suppress the error message for required field
         },
-        widget=forms.TextInput(attrs={'placeholder': 'Enter your query'})  # Optional: Add placeholder
+        widget=forms.TextInput(attrs={'placeholder': 'Enter your query'}),  # Optional: Add placeholder
+        label="Search Query" #
     )

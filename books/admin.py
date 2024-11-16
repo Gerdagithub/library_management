@@ -4,6 +4,11 @@ from django.shortcuts import render
 from django.core.exceptions import ValidationError
 from .models import Book
 from .forms import SearchForm
+from books.utils import BookSearchHandler
+from django.db.models.query import QuerySet
+from django.utils.timezone import now, timedelta
+from users.models import Reader
+from loans.models import Loan
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
@@ -11,44 +16,71 @@ class BookAdmin(admin.ModelAdmin):
                     'publication_date', 'genre', 'copies_in_stock']
 
     change_list_template = "admin/books/book/change_list.html"  # Custom change list template
+    filtered_queryset = []
+    # actions = ['borrow_book_for_user']
+
+    # def borrow_book_for_user(self, request, queryset):
+    #     """
+    #     Custom admin action to borrow selected books for a user.
+    #     """
+    #     if 'apply' in request.POST:
+    #         reader_name = request.POST.get('reader_name')
+    #         reader_email = request.POST.get('reader_email')
+    #         reader_phone = request.POST.get('reader_phone')
+            
+    #         # Create or retrieve the reader
+    #         reader, created = Reader.objects.get_or_create(
+    #             email=reader_email,
+    #             defaults={'name': reader_name, 'phone_number': reader_phone},
+    #         )
+
+    #         if created:
+    #             self.message_user(request, f"New reader '{reader_name}' has been created.")
+
+    #         # Loop through selected books and create loans
+    #         for book in queryset:
+    #             if book.copies_in_stock > 0:
+    #                 # Calculate due date (e.g., 14 days from today)
+    #                 due_date = now().date() + timedelta(days=14)
+
+    #                 # Create the loan
+    #                 Loan.objects.create(
+    #                     isbn=book,
+    #                     reader=reader,
+    #                     due_date=due_date,
+    #                 )
+
+    #                 # Decrease book stock
+    #                 book.copies_in_stock -= 1
+    #                 book.save()
+
+    #                 self.message_user(request, f"Book '{book.title}' has been loaned to {reader.name}.")
+    #             else:
+    #                 self.message_user(request, f"Book '{book.title}' is out of stock.", level='error')
+
+    #         return None
+
+    #     # Render a form to get reader details
+    #     return render(request, 'admin/borrow_book_form.html', context={'books': queryset})
+
+    # borrow_book_for_user.short_description = "Borrow selected books for a user"
+    
 
     def changelist_view(self, request, extra_context=None):
-        """
-        Override the changelist view to include search functionality and display filtered results.
-        """
-        # Extract parameters from the GET request
-        action = request.GET.get("action", "").strip()
-        search_field = request.GET.get("search_field", "").strip()
-        search_query = request.GET.get("search_query", "").strip()
-
-        # Initialize extra_context for passing data to the template
         extra_context = extra_context or {}
-        search_form = SearchForm(request.GET)  # Bind form with GET data
-
-        # Log debugging information
-        print(f"Processing changelist_view for: {request.path}")
-        print(f"GET parameters: {request.GET}")
-
-        # Determine queryset based on action
-        if action == "display_all_books":
-            self.filtered_queryset = self.model.objects.all()
-        elif search_field and search_query:
-            # Perform a search if search_field and search_query are provided
-            if search_form.is_valid():
-                queryset = self.model.objects.filter(
-                    **{f"{search_field}__icontains": search_query}
-                )
-                self.filtered_queryset = queryset
-            else:
-                # Log form errors and set queryset to none if the form is invalid
-                print("Search form is invalid:", search_form.errors)
-                extra_context["form_errors"] = search_form.errors
-                self.filtered_queryset = self.model.objects.none()
-
-        # Pass the search form to the template
+        search_form = SearchForm(request.GET)
         extra_context["search_form"] = search_form
-
-        # Let Django admin handle rendering the changelist with extra context
+        
+        if request.GET != {'e': ['1']}:
+            search_handler = BookSearchHandler(self.model, request.GET)
+            search_handler.perform_search()
+        
+            new_context = search_handler.get_context()
+            if new_context:
+                self.filtered_queryset = new_context['results']
+        else:
+            self.filtered_queryset = self.filtered_queryset or self.model.objects.none() #self.model.objects.all()
+            
         return super().changelist_view(request, extra_context=extra_context)
 
 
@@ -59,37 +91,4 @@ class BookAdmin(admin.ModelAdmin):
         if hasattr(self, 'filtered_queryset'):
             return self.filtered_queryset
         return super().get_queryset(request)
-
-
-    def get_urls(self):
-        """
-        Add custom URLs for the admin interface.
-        """
-        urls = super().get_urls()
-        my_urls = [
-            path('search/', self.admin_site.admin_view(self.search_view), name='book_search'),
-        ]
-        return my_urls + urls
-
-    
-    def search_view(self, request):
-        """
-        Custom search view for displaying search results on a separate page.
-        """
-        search_form = SearchForm(request.GET)
-        results = None
-
-        if search_form.is_valid():
-            field = search_form.cleaned_data['search_field']
-            query = search_form.cleaned_data['search_query']
-            if field and query:
-                results = self.model.objects.filter(**{f'{field}__icontains': query})
-
-        context = {
-            **self.admin_site.each_context(request),
-            'opts': self.model._meta,
-            'search_form': search_form,
-            'results': results,
-        }
-        return render(request, 'admin/books/book/search_results.html', context)
 
