@@ -1,0 +1,38 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+    <button class="btn btn-primary" id="searchByFieldButton">Search by Field</button>
+
+    <!-- Search form hidden by default -->
+    <form method="get" class="search-form hidden" id="searchForm">
+        {{ search_form.as_p }}
+        <button type="submit" name="action" value="search" class="btn btn-primary">Search</button>
+    </form>
+
+    <hr>
+
+    <!-- Button to display all books -->
+    <form method="get">
+        <button type="submit" name="action" value="display_all_books" class="btn btn-primary">Display All Books</button>
+    </form>
+    {{ block.super }}
+
+    <!-- Add CSS and JavaScript -->
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script>
+        // Toggle visibility of the search form
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchByFieldButton = document.getElementById('searchByFieldButton');
+            const searchForm = document.getElementById('searchForm');
+
+            searchByFieldButton.addEventListener('click', function () {
+                searchForm.classList.toggle('hidden');
+            });
+        });
+    </script>
+{% endblock %}
