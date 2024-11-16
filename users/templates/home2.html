@@ -1,24 +1,5 @@
-{% comment %} {% extends "base.html" %} {% endcomment %}
-
 {% block content %}
     <h1>Library</h1>
-
-    <!-- Genres -->
-    <h2>Categories</h2>
-    <ul class="genre-list">
-        {% for genre in genres %}
-            <li>
-                <a href="?genre={{ genre }}">{{ genre }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-
-    {% if selected_genre %}
-        <h3>Books in Genre: "{{ selected_genre }}"</h3>
-        <a href="{% url 'home_page' %}" class="btn btn-secondary">Clear Filter</a>
-    {% endif %}
-
-    <hr>
 
     <!-- Search button -->
     <button class="btn btn-primary" id="searchByFieldButton">Search by Field</button>
@@ -27,6 +8,13 @@
     <form method="get" class="search-form hidden" id="searchForm">
         {{ search_form.as_p }}
         <button type="submit" name="action" value="search" class="btn btn-primary">Search</button>
+    </form>
+
+    <hr>
+
+    <!-- Button to display all books -->
+    <form method="get">
+        <button type="submit" name="action" value="display_all_books" class="btn btn-primary">Display All Books</button>
     </form>
 
     <hr>
@@ -55,32 +43,17 @@
                     <td>{{ book.genre }}</td>
                     <td>{{ book.copies_in_stock }}</td>
                 </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="7">No books found.</td>
-                </tr>
             {% endfor %}
         </tbody>
     </table>
 
-    <!-- Add CSS -->
+    <!-- Add CSS and JavaScript -->
     <style>
-        .genre-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .genre-list li {
-            display: inline;
-            margin-right: 10px;
-        }
-
         .hidden {
             display: none;
         }
     </style>
 
-    <!-- Add JavaScript -->
     <script>
         // Toggle visibility of the search form
         document.addEventListener('DOMContentLoaded', function () {

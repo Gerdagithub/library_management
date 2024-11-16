@@ -21,6 +21,6 @@ from users import views as user_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
-    path('', user_views.home_page, name='home'), # maps the root URL (/) to your home page view.
+    path('', user_views.home_page, name='home_page'), # maps the root URL (/) to your home page view.
     # path('', include('users.urls')),
 ]
