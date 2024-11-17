@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrahead %}
+{{ block.super }}
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/custom_admin.css' %}"> {% endcomment %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/another_style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/yet_another_style.css' %}">
+{% endblock %}
+
+
+{% comment %} {% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/custom_admin.css' %}">
+{% endblock %} {% endcomment %}

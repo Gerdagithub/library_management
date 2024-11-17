@@ -4,6 +4,7 @@ from django.db import models
 class Book(models.Model):
     isbn = models.CharField(max_length=13, primary_key=True)
     title = models.CharField(max_length=255, null=False)
+    image = models.ImageField(upload_to='books/', blank=True, null=True) 
     author = models.CharField(max_length=255, null=False)
     publisher = models.CharField(max_length=255, blank=True, null=True)  # Optional field
     publication_date = models.DateField(null=True, blank=True)  # Optional field

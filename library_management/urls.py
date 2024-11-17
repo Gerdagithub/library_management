@@ -17,10 +17,29 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from users import views as user_views
+from django.contrib.admin.models import LogEntry
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+# Custom admin view
+# def custom_admin_index(request):
+#     print("AAAAAAAAAAA")
+#     recent_actions = LogEntry.objects.all().order_by('-action_time')[:10]
+#     return render(request, 'admin/index.html', {'recent_actions': recent_actions})
+
+# def custom_admin_index(request):
+#     # Add custom logic here (if needed)
+#     return site.index(request)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
     path('', user_views.home_page, name='home_page'), # maps the root URL (/) to your home page view.
+    # path('admin/', custom_admin_index, name='custom_admin_index'),
     # path('', include('users.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
