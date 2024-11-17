@@ -1,18 +1,16 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Home - Library Management{% endblock title %}
 
+{% block extra_styles %}
+    {% comment %} <link rel="stylesheet" href="{% static 'css/custom_site.css' %}"> {% endcomment %}
+{% endblock extra_styles %}
+
 {% block content %}
-<h1>Welcome to Library Management System</h1>
-<p>Manage your books and loans efficiently.</p>
-<div class="row">
-    <div class="col-md-6">
-        <a href="admin/books/" class="btn btn-primary btn-lg">View Books</a>
-    </div>
-    <div class="col-md-6">
-        <a href="admin/loans/" class="btn btn-success btn-lg">Manage Loans</a>
-    </div>
-</div>
+    {% include 'partials/_navbar.html' with genres=genres %}
+
+    <h1>Welcome to Library Management System</h1>
+    
 {% endblock content %}
 
 

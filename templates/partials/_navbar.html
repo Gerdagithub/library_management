@@ -1,56 +1,23 @@
-<nav class="navbar navbar-expand-lg custom-navba">
+<nav class="navbar navbar-expand-lg custom-navba bg-success text-light">
     <div class="container-fluid">
-        <!-- Branding -->
-        {% comment %} <a class="navbar-brand" href="#">Library</a> {% endcomment %}
-
-        <!-- Toggler Button for Mobile View -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Links and Dropdown -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			{% include 'partials/_navbar_genres_dropdown.html' %}
+            <a class="btn btn-success text-light d-flex align-items-center offcanvas-genres-button" 
+                data-bs-toggle="offcanvas" href="#offcanvasExample" 
+                role="button" aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon"></span>
+                <span class="ms-2">Books by Genre</span>  
+            </a>
 
-            <!-- Right-aligned Admin Link -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/">Admin</a>
+                    <a class="nav-link text-light" href="/admin/">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/">Home</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-{% comment %} <nav class="navbar navbar-expand-lg custom-navba">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Library 
-
-
-			<div class="dropdown">
-
-				<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				  Dropdown button
-				</button>
-			
-				<ul class="dropdown-menu">
-				  <li><a class="dropdown-item" href="#">Action</a></li>
-				  <li><a class="dropdown-item" href="#">Another action</a></li>
-				  <li><a class="dropdown-item" href="#">Something else here</a></li>
-				</ul>
-				
-			</div>
-		</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="/admin/">Admin</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav> {% endcomment %}
+{% include 'partials/_offcanvas_genres.html' with genres=genres %}

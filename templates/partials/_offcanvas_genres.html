@@ -1,0 +1,22 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" 
+    id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Books Genres</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+		<div class="list-group">
+			{% for genre in genres %}
+				<a class="dropdown-item list-group-item list-group-item-action
+					{% if genre == selected_genre %}{% endif %}" 
+					href="?genre={{ genre }}">
+					{{ genre }}
+				</a>
+			{% empty %}
+				<a class="dropdown-item" href="#">No Genres Available</a>
+			{% endfor %}
+		</div>
+    </div>
+</div>
