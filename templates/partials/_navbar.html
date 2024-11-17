@@ -1,7 +1,12 @@
-<nav class="navbar navbar-expand-lg custom-navba bg-success text-light">
+{%load static%}
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock extra_styles %}
+
+<nav class="navbar navbar-expand-lg custom-navba">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="btn btn-success text-light d-flex align-items-center offcanvas-genres-button" 
+            <a class="btn btn-success d-flex align-items-center offcanvas-genres-button" 
                 data-bs-toggle="offcanvas" href="#offcanvasExample" 
                 role="button" aria-controls="offcanvasExample">
                 <span class="navbar-toggler-icon"></span>
@@ -10,10 +15,10 @@
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/admin/">Admin</a>
+                    <a class="nav-link" href="/admin/">Admin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
             </ul>
         </div>

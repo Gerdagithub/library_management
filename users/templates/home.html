@@ -3,13 +3,16 @@
 {% block title %}Home - Library Management{% endblock title %}
 
 {% block extra_styles %}
-    {% comment %} <link rel="stylesheet" href="{% static 'css/custom_site.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}">
 {% endblock extra_styles %}
 
 {% block content %}
     {% include 'partials/_navbar.html' with genres=genres %}
 
-    <h1>Welcome to Library Management System</h1>
+    <div class="d-flex justify-content-center align-items-center mt-4">
+        <img src="{% static 'images/LibSpot_logo-removebg-preview.png' %}" 
+            class="img-fluid logo" alt="Library Management System">
+    </div>
     
 {% endblock content %}
 
