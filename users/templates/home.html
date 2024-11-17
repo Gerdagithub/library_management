@@ -1,9 +1,25 @@
-{% comment %} {% extends "base.html" %} {% endcomment %}
+{% extends "base.html" %}
+
+{% block title %}Home - Library Management{% endblock title %}
 
 {% block content %}
+<h1>Welcome to Library Management System</h1>
+<p>Manage your books and loans efficiently.</p>
+<div class="row">
+    <div class="col-md-6">
+        <a href="admin/books/" class="btn btn-primary btn-lg">View Books</a>
+    </div>
+    <div class="col-md-6">
+        <a href="admin/loans/" class="btn btn-success btn-lg">Manage Loans</a>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+{% comment %} {% block content %}
     <h1>Library</h1>
 
-    <!-- Genres -->
     <h2>Categories</h2>
     <ul class="genre-list">
         {% for genre in genres %}
@@ -20,10 +36,8 @@
 
     <hr>
 
-    <!-- Search button -->
     <button class="btn btn-primary" id="searchByFieldButton">Search by Field</button>
 
-    <!-- Search form (hidden by default) -->
     <form method="get" class="search-form hidden" id="searchForm">
         {{ search_form.as_p }}
         <button type="submit" name="action" value="search" class="btn btn-primary">Search</button>
@@ -31,7 +45,6 @@
 
     <hr>
 
-    <!-- Book List -->
     <table class="table">
         <thead>
             <tr>
@@ -63,7 +76,6 @@
         </tbody>
     </table>
 
-    <!-- Add CSS -->
     <style>
         .genre-list {
             list-style: none;
@@ -80,9 +92,7 @@
         }
     </style>
 
-    <!-- Add JavaScript -->
     <script>
-        // Toggle visibility of the search form
         document.addEventListener('DOMContentLoaded', function () {
             const searchByFieldButton = document.getElementById('searchByFieldButton');
             const searchForm = document.getElementById('searchForm');
@@ -92,4 +102,4 @@
             });
         });
     </script>
-{% endblock %}
+{% endblock %} {% endcomment %}
