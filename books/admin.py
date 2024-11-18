@@ -17,54 +17,6 @@ class BookAdmin(admin.ModelAdmin):
 
     change_list_template = "admin/books/book/change_list.html"  # Custom change list template
     filtered_queryset = []
-    # actions = ['borrow_book_for_user']
-
-    # def borrow_book_for_user(self, request, queryset):
-    #     """
-    #     Custom admin action to borrow selected books for a user.
-    #     """
-    #     if 'apply' in request.POST:
-    #         reader_name = request.POST.get('reader_name')
-    #         reader_email = request.POST.get('reader_email')
-    #         reader_phone = request.POST.get('reader_phone')
-            
-    #         # Create or retrieve the reader
-    #         reader, created = Reader.objects.get_or_create(
-    #             email=reader_email,
-    #             defaults={'name': reader_name, 'phone_number': reader_phone},
-    #         )
-
-    #         if created:
-    #             self.message_user(request, f"New reader '{reader_name}' has been created.")
-
-    #         # Loop through selected books and create loans
-    #         for book in queryset:
-    #             if book.copies_in_stock > 0:
-    #                 # Calculate due date (e.g., 14 days from today)
-    #                 due_date = now().date() + timedelta(days=14)
-
-    #                 # Create the loan
-    #                 Loan.objects.create(
-    #                     isbn=book,
-    #                     reader=reader,
-    #                     due_date=due_date,
-    #                 )
-
-    #                 # Decrease book stock
-    #                 book.copies_in_stock -= 1
-    #                 book.save()
-
-    #                 self.message_user(request, f"Book '{book.title}' has been loaned to {reader.name}.")
-    #             else:
-    #                 self.message_user(request, f"Book '{book.title}' is out of stock.", level='error')
-
-    #         return None
-
-    #     # Render a form to get reader details
-    #     return render(request, 'admin/borrow_book_form.html', context={'books': queryset})
-
-    # borrow_book_for_user.short_description = "Borrow selected books for a user"
-    
 
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}

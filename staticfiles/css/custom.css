@@ -1,25 +1,16 @@
-/* Custom Navbar Styling */
-.custom-navba {
-    background-color: #28a745; /* Beautiful Green */
-    background-image: linear-gradient(45deg, #28a745, #218838);
-    color: white;
+/* :root {
+    --darker-color: #02213f;
+    --lighter-color: #40e0d0;
+    --hovered-lighter-color: #3ac9bc;
+    --main-text-color: #02213f;
+    --gradient-bg: linear-gradient(45deg, #40e0d0, #40e0d0);
+} */
+
+body{
+    background-color: var(--darker-color);
 }
 
-.custom-navba .navbar-brand,
-.custom-navba .nav-link {
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.custom-navba .navbar-brand:hover,
-.custom-navba .nav-link:hover {
-    color: #c3e6cb;
-}
-
-.custom-navba .navbar-toggler {
-    border-color: white;
-}
-
-.custom-navba .navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23fff" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+/* Text Spacing */
+.ms-2 {
+    margin-left: 0.5rem; /* Adjust spacing between icon and text */
 }
