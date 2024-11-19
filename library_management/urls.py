@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from users import views as user_views
+from books import views as book_views
 from django.contrib.admin.models import LogEntry
 
 from django.conf import settings
@@ -34,11 +35,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('books/', include('books.urls')),
     path('books/', include('books.urls')),
-    # path('', user_views.home_page, name='home_page'), # maps the root URL (/) to your home page view.
     path('', user_views.home_page, name='home_page'),
-    # path('admin/', custom_admin_index, name='custom_admin_index'),
-    # path('', include('users.urls')),
+    # path('all-books/', book_views.all_books, name='all_books')
+    # path('books/all-books/', book_views.all_books, name='all_books'),  # Add this line
+
 ]
 
 

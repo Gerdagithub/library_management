@@ -1,0 +1,21 @@
+{%load static%}
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/book-cards.css' %}">
+{% endblock extra_styles %}
+<br>
+<div class="books-container">
+	
+    {% for book in books %}
+        <a class="book-card" href="#">
+            <img src="{{ book.image_url }}" 
+				alt="{{ book.title }}"
+				onerror="this.onerror=null;this.src='{% static 'images/book-placeholder-cropped.png' %}';"
+                class="img-fluid">
+
+            <h4>{{ book.title }}</h4>
+            <h6>{{ book.author }}</h6>
+        </a>
+    {% empty %}
+        <p>No books found.</p>
+    {% endfor %}
+</div>

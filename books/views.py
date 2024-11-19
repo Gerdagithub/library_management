@@ -14,4 +14,9 @@ def add_book(request):
         
     return render(request, 'books/add_book.html', {'form': form})
 
+def all_books(request):
+    books = Book.objects.all()  # Fetch all books from the database
+    return render(request, 'books/all_books.html', {'books': books})
+    # return render(request, 'books/all_books.html')
+
 

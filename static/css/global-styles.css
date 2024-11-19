@@ -1,0 +1,31 @@
+body{
+    background-color: var(--darker-color);
+}
+
+h1 {
+    font-family: var(--header-font-family) !important;
+    color: var(--light-text-color);
+    font-weight: bold;
+    border-radius: 0.25rem;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+}
+
+h4 {
+    font-family: var(--header-font-family);
+    color: var(--light-text-color);
+    font-weight: bold;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+
+/* Text Spacing */
+.ms-2 {
+    margin-left: 0.5rem; /* Adjust spacing between icon and text */
+}
+
+* {
+    box-sizing: border-box;
+}
