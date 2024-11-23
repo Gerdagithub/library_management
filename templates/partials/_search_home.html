@@ -4,79 +4,15 @@
 	<link rel="stylesheet" href="{% static 'css/table.css' %}">
 {% endblock extra_styles %}
 
-
-<form class="d-flex justify-content-center mb-5" role="search" method="get" action="/search/">
-    <select name="search_field" class="form-select me-2 w-auto fields-dropdown-menu">
-        <option value="" disabled selected>Search By</option>
-        {% for value, label in search_form.fields.search_field.choices %}
-            <option value="{{ value }}">{{ label }}</option>
-        {% endfor %}
-    </select>
-
-	<input class="form-control me-2 w-25" type="search" name="q" placeholder="Search books..." aria-label="Search">
-	<button class="btn btn-outline-light" type="submit">Search</button>
-	
+<form class="d-flex justify-content-center mb-5 align-items-center" role="search" method="get">
+    <div class="mb-3 me-2">
+        {{ search_form.search_field }}
+    </div>
+    <div class="mb-3 me-2">
+        {{ search_form.search_query }}
+    </div>
+    <button class="btn btn-outline-light mb-3 me-2" type="submit" 
+		name="action" value="search">Search</button>
 </form>
 
-
 {%include 'partials/_display_books.html' with genres=genres%}
-
-{% comment %} <h3 class="text-white">All Books</h3>
-<br>
-<div class="books-container">
-	
-    {% for book in books %}
-        <div class="book-card">
-            <img src="{{ book.image_url }}" 
-				alt="{{ book.title }}"
-				onerror="this.onerror=null;this.src='static/images/book-placeholder-cropped.png';"
-				class="img-fluid">
-
-            <h4>{{ book.title }}</h4>
-            <p>{{ book.author }}</p>
-        </div>
-    {% empty %}
-        <p>No books found.</p>
-    {% endfor %}
-</div> {% endcomment %}
-
-
-
-
-{% comment %} <hr>
-
-<table class="table books-table">
-	<thead>
-		<tr>
-			<th>ISBN</th>
-			<th>Title</th>
-			<th>Author</th>
-			<th>Publisher</th>
-			<th>Publication Date</th>
-			<th>Genre</th>
-			<th>Copies in Stock</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% for book in books %}
-			<tr>
-				<td>{{ book.isbn }}</td>
-				<td>{{ book.title }}</td>
-				<td>{{ book.author }}</td>
-				<td>{{ book.publisher }}</td>
-				<td>{{ book.publication_date }}</td>
-				<td>{{ book.genre }}</td>
-				<td>{{ book.copies_in_stock }}</td>
-			</tr>
-		{% empty %}
-			<tr>
-				<td colspan="7">No books found.</td>
-			</tr>
-		{% endfor %}
-	</tbody>
-</table> {% endcomment %}
-
-
-<script>
-
-</script>

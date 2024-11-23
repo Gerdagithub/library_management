@@ -9,4 +9,5 @@ urlpatterns = [
     # path('', views.home_page, name='home_page'),  # Home page
     path('', home_page, name='home_page'), 
     path('/all-books', all_books, name='all_books'), 
+    # path('search/', views.search_view, name='search'),
 ]

@@ -18,16 +18,26 @@ class SearchForm(forms.Form):
     )
     search_field = forms.ChoiceField(
         choices=SEARCH_CHOICES,
-        error_messages={
-            'required': ''  # Suppress the error message for required field
-        },
-        label="Search Field" #
+        widget=forms.Select(attrs={
+            'class': 'form-select me-2 w-auto fields-dropdown-menu',
+            'style': 'border: 1px solid #ccc; border-radius: 5px;',
+        }),
+        # error_messages={
+        #     'required': 'dddd'  # Suppress the error message for required field
+        # },
+        label="Search By" #
     )
     search_query = forms.CharField(
         max_length=255,
         error_messages={
-            'required': ''  # Suppress the error message for required field
+            'required': 'sssssss'  # Suppress the error message for required field
         },
-        widget=forms.TextInput(attrs={'placeholder': 'Enter your query'}),  # Optional: Add placeholder
+        # widget=forms.TextInput(attrs={'placeholder': 'Enter your query', 'required': 'required'}),
+        # widget=forms.TextInput(attrs={'placeholder': 'Enter your query'}),  # Optional: Add placeholder
+        widget=forms.TextInput(attrs={
+            'class': 'form-control w-auto me-2',
+            'placeholder': 'Search books...',
+            # 'style': 'border: 1px solid #ccc; border-radius: 5px;',
+        }),
         label="Search Query" #
     )
