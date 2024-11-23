@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block content %}
-	{% include 'partials/_navbar.html' with genres=genres %}
+	{% comment %} {% include 'partials/_navbar.html' with genres=genres %} {% endcomment %}
 	<h1 class>
 		All LibSpot Books
 	</h1>
 
-	{%include 'partials/_display_books.html' with books=books%}
+	{%include 'partials/_display_books.html' with books=books genres=genres%}
 
 {% endblock %}
