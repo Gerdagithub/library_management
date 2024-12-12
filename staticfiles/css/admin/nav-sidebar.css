@@ -1,0 +1,71 @@
+:root {
+	--nav-sidebar-color: #1e293b;
+}
+
+#nav-sidebar {
+    background-color: var(--nav-sidebar-color);
+    color: #ffffff;
+    padding: 15px;
+    border-right: 1px solid #2c3e50;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#nav-sidebar input#nav-filter {
+    background-color: #001a33;
+    color: #ffffff;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    padding: 3px;
+    width: 90%;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+#nav-sidebar .module caption a {
+	color: var(--main-text-color)
+}
+
+#nav-sidebar .module caption {
+	background-color: var(--hovered-lighter-color);
+}
+
+#nav-sidebar .module.current-app caption a {
+	color: var(--main-text-color) !important;
+    font-weight: bold !important;
+}
+
+#nav-sidebar .module.current-app th a[aria-current="page"] { 
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+#nav-sidebar .addlink {
+    color: var(--lighter-color);
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+#nav-sidebar .addlink:hover {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+#nav-sidebar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#nav-sidebar table th {
+    text-align: left;
+}
+
+#nav-sidebar table td {
+    text-align: right;
+    padding-right: 10px;
+}
+
+#nav-sidebar th a {
+	color: var(--lighter-color)
+}

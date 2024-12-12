@@ -1,0 +1,17 @@
+.hidden {
+    display: none !important;
+}
+
+#searchForm {
+    width: 100%; /* Forces the form to take full width */
+    margin-top: 15px; /* Adds space between the buttons and form */
+}
+
+#searchForm .mb-3 {
+    flex: 1; /* Allows inputs to stretch for better alignment */
+}
+
+input {
+    background-color: #ffffff !important;
+    color: gray !important;
+}

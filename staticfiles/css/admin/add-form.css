@@ -1,0 +1,23 @@
+div.form-row {
+	background-color: #001a33;
+}
+
+div.submit-row {
+	background-color: #001a33;
+}
+
+div.submit-row input,
+div.submit-row input[name="_save"] {
+	background-color: transparent;
+	border: 1px solid white
+}
+
+div.submit-row input[type="submit"]:hover,
+div.submit-row input[type="button"]:hover{
+	background-color: white;
+	color: var(--main-text-color);
+	border: 1px solid white
+}
+
+
+

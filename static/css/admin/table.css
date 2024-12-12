@@ -1,0 +1,80 @@
+:root {
+	--table-header-color: #001a33;
+	--table-row-color: #012349;
+	--cell-border-color: #2c3e50;
+	--cell-border-style: 1px solid;
+	--elements-border-color: white;
+	--table-btn-background-color: transparent;
+}
+
+div.actions {
+    background-color: var(--table-header-color) !important;
+    color: var(--light-text-color) !important;
+    padding: 15px !important;
+    border: var(--cell-border-style) var(--cell-border-color) !important;
+}
+
+div.actions select {
+    background-color: var(--table-header-color) !important;
+    color: var(--light-text-color) !important;
+}
+
+div.actions button {
+	background-color: var(--table-btn-background-color) !important;
+}
+
+#result_list thead th {
+    background-color: var(--table-header-color);
+    color: var(--light-text-color);
+    font-weight: bold;
+    border: var(--cell-border-style) var(--cell-border-color);
+}
+
+#result_list th {
+    background-color: var(--table-row-color);
+    border: var(--cell-border-style) var(--cell-border-color);
+}
+
+#result_list th.field-isbn a {
+    color: var(--light-text-color);
+}
+
+#result_list th.field-isbn a:hover {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+#result_list tbody tr td {
+    background-color: var(--table-row-color);
+    color: var(--light-text-color);
+    padding: 10px;
+    border: var(--cell-border-style) var(--cell-border-color);
+}
+
+#result_list tbody tr:nth-child(odd) td {
+    background-color: var(--table-row-color);
+}
+
+#result_list tbody tr:hover td,
+#result_list tbody tr:hover th {
+    background-color: var(--hovered-lighter-color);
+    color: var(--main-text-color);
+}
+
+#result_list tbody tr:hover th.field-isbn a {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+#result_list td.action-checkbox {
+    text-align: center;
+    background-color: var(--table-row-color);
+}
+
+.paginator {
+    background-color: var(--table-header-color) !important;
+    color: var(--light-text-color) !important;
+    text-align: left !important;
+    padding-left: 15px !important;
+    border: var(--cell-border-style) var(--cell-border-color) !important;
+}

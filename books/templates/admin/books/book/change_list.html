@@ -1,23 +1,57 @@
 {% extends "admin/change_list.html" %}
+{%load static%}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/_variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom-admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin/table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin/nav-sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin/change-book.css' %}">
+
+{% endblock %}
+
 
 {% block content %}
-    <button class="btn btn-primary" id="searchByFieldButton">Search by Field</button>
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
+        <div class="d-flex flex-wrap align-items-center gap-3">
+            <form method="get">
+                <button type="submit" name="action" value="display_all_books" class="btn btn-outline-light">Display All Books</button>
+            </form>
 
-    <!-- Search form hidden by default -->
-    <form method="get" class="search-form hidden" id="searchForm">
-        {{ search_form.as_p }}
-        <button type="submit" name="action" value="search" class="btn btn-primary">Search</button>
-    </form>
+            <button class="btn btn-outline-light" id="searchByFieldButton">Search by Field</button>
+
+            {% comment %} <form method="get" class="search-form hidden" id="searchForm">
+                {{ search_form.as_p }}
+                <button type="submit" name="action" value="search" class="btn btn-primary">Search</button>
+            </form> {% endcomment %}
+            <form class="d-flex flex-wrap align-items-center hidden" id="searchForm" role="search" method="get">
+                <div class="mb-1 me-2">
+                    {{ search_form.search_field }}
+                </div>
+                <div class="mb-1 me-2">
+                    {{ search_form.search_query }}
+                </div>
+                <button class="btn btn-outline-light mb-1 me-2" type="submit" 
+                    name="action" value="search">Search</button>
+            </form>
+        </div>
+
+        {% if has_add_permission %}
+            <button type="button" 
+                class="btn btn-outline-light"
+                onclick="window.location.href='http://127.0.0.1:8000/admin/books/book/add/?_changelist_filters=e%3D1';">
+                Add Book
+            </button>
+        {% endif %}
+    </div>
 
     <hr>
 
-    <!-- Button to display all books -->
-    <form method="get">
-        <button type="submit" name="action" value="display_all_books" class="btn btn-primary">Display All Books</button>
-    </form>
     {{ block.super }}
 
-    <!-- Add CSS and JavaScript -->
     <style>
         .hidden {
             display: none;
@@ -25,7 +59,6 @@
     </style>
 
     <script>
-        // Toggle visibility of the search form
         document.addEventListener('DOMContentLoaded', function () {
             const searchByFieldButton = document.getElementById('searchByFieldButton');
             const searchForm = document.getElementById('searchForm');
@@ -36,3 +69,5 @@
         });
     </script>
 {% endblock %}
+
+{% block object-tools %}{% endblock %}

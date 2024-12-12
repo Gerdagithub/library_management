@@ -32,6 +32,18 @@ div.breadcrumbs, div.breadcrumbs a {
 
 }
 
+
+/* div#toolbar {
+	background-color: var(--darker-color);
+}
+
+div.changelist-form-container {
+    background-color: var(--darker-color);
+    padding: 10px;
+    border-radius: 5px;
+} */
+
+
 div#changelist {
     background-color: var(--darker-color);
 }
@@ -67,46 +79,3 @@ nav#changelist-filter summary {
 	padding: 10px;
 }
 
-
-
-th#auth-group, th#books-book, th#loans-loan, th#users-reader,
-.model-group tr, .model-group td,
-.model-book tr, .model-book td,
-.model-loan tr, .model-loan td,
-.model-reader tr, .model-reader td {
-	background-color: var(--table-header-color);
-}
-
-th#auth-user,
-.model-user tr, .model-user td {
-	background-color: var(--table-row-color);
-}
-
-table caption {
-    display: none;
-}
-
-#recent-actions-module, div#content-related {
-    background-color: var(--table-header-color) !important;
-    color: #ffffff;
-    padding: 10px;
-}
-
-#recent-actions-module h2, 
-#recent-actions-module h3 {
-    color: var(--lighter-color);
-}
-
-#recent-actions-module ul.actionlist li a {
-    color: white; 
-}
-
-
-a.addlink, a.changelink, 
-#auth-group a,
-#auth-user a,
-#books-book a,
-#loans-loan a,
-#users-reader a {
-	color: white;
-}

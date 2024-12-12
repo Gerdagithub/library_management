@@ -32,15 +32,12 @@ from django.conf.urls.static import static
 # def custom_admin_index(request):
 #     # Add custom logic here (if needed)
 #     return site.index(request)
+admin.site.site_title = "LibSpot"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('books/', include('books.urls')),
     path('books/', include('books.urls')),
     path('', user_views.home_page, name='home_page'),
-    # path('all-books/', book_views.all_books, name='all_books')
-    # path('books/all-books/', book_views.all_books, name='all_books'),  # Add this line
-
 ]
 
 

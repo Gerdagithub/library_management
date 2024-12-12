@@ -7,13 +7,6 @@
 	--light-text-color: white;
     --gradient-bg: linear-gradient(45deg, #40e0d0, #40e0d0);
     --header-font-family: 'Georgia', serif;
-
-    --table-header-color: #001a33;
-	--table-row-color: #012349;
-	--cell-border-color: #2c3e50;
-	--cell-border-style: 1px solid;
-	--elements-border-color: white;
-	--table-btn-background-color: transparent;
 }
 
 /* h1 {

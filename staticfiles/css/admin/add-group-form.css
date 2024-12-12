@@ -1,0 +1,58 @@
+#id_permissions_selector_chosen h2 {
+	background-color: var(--hovered-lighter-color) !important;
+	color: var(--main-text-color)
+}
+
+div.selector-available h2 {
+    background-color: var(--hovered-lighter-color) !important;
+    color: var(--main-text-color) !important;
+}
+
+select {
+	background-color: #012349;
+}
+
+#id_permissions_to::-webkit-scrollbar,
+#id_permissions_from::-webkit-scrollbar {
+    background-color: #001a33;
+}
+
+#id_permissions_from::-webkit-scrollbar-thumb:hover,
+#id_permissions_to::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-text-color);
+}
+
+#id_permissions_from,
+#id_permissions_to {
+    scrollbar-color: var(--hovered-lighter-color) #001a33;
+    scrollbar-width: thin;
+}
+
+.selector-chooser {
+	background-color: red;
+}
+
+#id_permissions_add_link,
+#id_permissions_remove_link {
+    background-color: #001a33;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#id_permissions_add_link:hover,
+#id_permissions_remove_link:hover {
+    background-color: var(--hovered-lighter-color);
+    color: #001a33;
+}
+
+ul.selector-chooser li {
+    background-color: #001a33;
+}
+
+

@@ -1,0 +1,26 @@
+{% comment %} {% extends "admin/app_index.html" %}
+
+{% block content %}
+<div id="content-main">
+    {% for model in app.models %}
+        <div class="app-{{ model.object_name|lower }} module">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">{{ model.name }}</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for action in model.perms %}
+                        <tr>
+                            <td><a href="{{ action.url }}">{{ action.name }}</a></td>
+                            <td>{{ action.description }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %} {% endcomment %}

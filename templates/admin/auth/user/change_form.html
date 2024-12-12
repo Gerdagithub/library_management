@@ -1,0 +1,16 @@
+{% extends "admin/change_form.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+	<link rel="stylesheet" href="{% static 'css/_variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom-admin.css' %}">
+	<link rel="stylesheet" href="{% static 'css/admin/add-form.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/admin/add-user-form.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<h1>HHHHHHHHHHHHHHHHH </h1>
+    {{ block.super }}
+{% endblock %}

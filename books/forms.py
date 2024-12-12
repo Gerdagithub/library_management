@@ -22,22 +22,16 @@ class SearchForm(forms.Form):
             'class': 'form-select me-2 w-auto fields-dropdown-menu',
             'style': 'border: 1px solid #ccc; border-radius: 5px;',
         }),
-        # error_messages={
-        #     'required': 'dddd'  # Suppress the error message for required field
-        # },
-        label="Search By" #
+        label="Search By"
     )
     search_query = forms.CharField(
         max_length=255,
         error_messages={
-            'required': 'sssssss'  # Suppress the error message for required field
+            'required': ''
         },
-        # widget=forms.TextInput(attrs={'placeholder': 'Enter your query', 'required': 'required'}),
-        # widget=forms.TextInput(attrs={'placeholder': 'Enter your query'}),  # Optional: Add placeholder
         widget=forms.TextInput(attrs={
             'class': 'form-control w-auto me-2',
             'placeholder': 'Search books...',
-            # 'style': 'border: 1px solid #ccc; border-radius: 5px;',
         }),
-        label="Search Query" #
+        label="Search Query" 
     )
