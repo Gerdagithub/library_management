@@ -15,3 +15,11 @@ input {
     background-color: #ffffff !important;
     color: gray !important;
 }
+
+h2 {
+	color: #ffffff !important;
+}
+
+#content h2 {
+    color: white !important;
+}

@@ -32,6 +32,7 @@ class BookAdmin(admin.ModelAdmin):
                     'publication_date', 'genre', 'copies_in_stock']
 
     # change_list_template = "admin/books/book/change_list.html"  # Custom change list template
+    # readonly_fields = ('isbn',)
     filtered_queryset = []
 
     def changelist_view(self, request, extra_context=None):

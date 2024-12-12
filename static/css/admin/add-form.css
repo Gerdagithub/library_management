@@ -21,3 +21,15 @@ div.submit-row input[type="button"]:hover{
 
 
 
+h2 {
+	color: #ffffff !important;
+	font-size: medium;
+}
+
+input#id_image {
+	color: #ffffff;
+}
+
+div.readonly {
+	color: white;
+}

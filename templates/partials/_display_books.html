@@ -2,18 +2,31 @@
 {% block extra_styles %}
     <link rel="stylesheet" href="{% static 'css/book-cards.css' %}">
 {% endblock extra_styles %}
+{%if selected_genre%}
+    <h1>{{selected_genre}}</h1>
+{% else %}
+    <h1>
+        All LibSpot Books
+    </h1>
+{% endif %}
 <br>
 <div class="books-container">
 	
     {% for book in books %}
         <a class="book-card" href="#">
-            <img src="{{ book.image_url }}" 
-				alt="{{ book.title }}"
-				onerror="this.onerror=null;this.src='{% static 'images/book-placeholder-cropped.png' %}';"
-                class="img-fluid">
+            {% if book.image %}
+                <img src="{{ MEDIA_URL }}{{ book.image }}" alt="{{ book.title }}">
+            {% else %}
+                <img src="{{ book.image_url }}" 
+                    alt="{{ book.title }}"
+                    onerror="this.onerror=null;this.src='{% static 'images/book-placeholder-cropped.png' %}';"
+                    class="img-fluid">
+            {% endif %}
 
             <h4>{{ book.title }}</h4>
+            {% comment %} <h4>{{ book.title|slice:":20" }}{% if book.title|length > 20 %}...{% endif %}</h4> {% endcomment %}
             <h6>{{ book.author }}</h6>
+            <h6>Count: {{book.copies_in_stock}}</h6>
         </a>
     {% empty %}
         <p>No books found.</p>
