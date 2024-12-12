@@ -1,0 +1,81 @@
+body {
+    background-color: var(--darker-color);
+}
+
+h1 {
+	font-family: var(--header-font-family) !important;
+    color: var(--light-text-color);
+    font-weight: bold;
+	font-size: 1.5rem;
+    border-radius: 0.25rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+#header {
+	background-color: var(--lighter-color);
+	color: var(--darker-color)
+}
+
+#header a, #header button {
+	color: var(--darker-color) !important;
+}
+
+#site-name {
+	font-family: var(--header-font-family) !important;
+	border-radius: 0.25rem !important;
+}
+
+div.breadcrumbs, div.breadcrumbs a {
+	background-color: var(--lighter-color);
+	color: var(--darker-color) !important;
+
+}
+
+
+/* div#toolbar {
+	background-color: var(--darker-color);
+}
+
+div.changelist-form-container {
+    background-color: var(--darker-color);
+    padding: 10px;
+    border-radius: 5px;
+} */
+
+
+div#changelist {
+    background-color: var(--darker-color);
+}
+
+nav#changelist-filter {
+    background-color: #001a33 !important;
+}
+
+h2#changelist-filter-header {
+	background-color: var(--hovered-lighter-color);
+	color: var(--main-text-color)
+}
+
+nav#changelist-filter a {
+	color: var(--light-text-color);
+}
+
+nav#changelist-filter ul li.selected a {
+	color: var(--hovered-lighter-color);
+}
+
+nav#changelist-filter summary {
+    color: var(--hovered-lighter-color);
+    font-weight: bold;
+}
+
+
+
+.add-button-container {
+    text-align: right;
+    margin-top: -40px;
+    margin-right: 10px;
+	padding: 10px;
+}
+

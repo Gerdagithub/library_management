@@ -1,0 +1,112 @@
+body {
+    background-color: var(--darker-color);
+}
+
+h1 {
+	font-family: var(--header-font-family) !important;
+    color: var(--light-text-color);
+    font-weight: bold;
+	font-size: 1.5rem;
+    border-radius: 0.25rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+#header {
+	background-color: var(--lighter-color);
+	color: var(--darker-color)
+}
+
+#header a, #header button {
+	color: var(--darker-color) !important;
+}
+
+#site-name {
+	font-family: var(--header-font-family) !important;
+	border-radius: 0.25rem !important;
+}
+
+div.breadcrumbs, div.breadcrumbs a {
+	background-color: var(--lighter-color);
+	color: var(--darker-color) !important;
+
+}
+
+div#changelist {
+    background-color: var(--darker-color);
+}
+
+nav#changelist-filter {
+    background-color: #001a33 !important;
+}
+
+h2#changelist-filter-header {
+	background-color: var(--hovered-lighter-color);
+	color: var(--main-text-color)
+}
+
+nav#changelist-filter a {
+	color: var(--light-text-color);
+}
+
+nav#changelist-filter ul li.selected a {
+	color: var(--hovered-lighter-color);
+}
+
+nav#changelist-filter summary {
+    color: var(--hovered-lighter-color);
+    font-weight: bold;
+}
+
+
+
+.add-button-container {
+    text-align: right;
+    margin-top: -40px;
+    margin-right: 10px;
+	padding: 10px;
+}
+
+
+
+th#auth-group, th#books-book, th#loans-loan, th#users-reader,
+.model-group tr, .model-group td,
+.model-book tr, .model-book td,
+.model-loan tr, .model-loan td,
+.model-reader tr, .model-reader td {
+	background-color: var(--table-header-color);
+}
+
+th#auth-user,
+.model-user tr, .model-user td {
+	background-color: var(--table-row-color);
+}
+
+table caption {
+    display: none;
+}
+
+#recent-actions-module, div#content-related {
+    background-color: var(--table-header-color) !important;
+    color: #ffffff;
+    padding: 10px;
+}
+
+#recent-actions-module h2, 
+#recent-actions-module h3 {
+    color: var(--lighter-color);
+}
+
+#recent-actions-module ul.actionlist li a {
+    color: white; 
+}
+
+
+a.addlink, a.changelink, 
+#auth-group a,
+#auth-user a,
+#books-book a,
+#loans-loan a,
+#users-reader a {
+	color: white;
+}

@@ -1,0 +1,72 @@
+div#loan_set-group {
+    background-color: #001a33;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+div#loan_set-group h2 {
+	background-color: var(--hovered-lighter-color);
+    color: var(--main-text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+div#loan_set-group .tabular {
+    background-color: #001a33;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+div#loan_set-group input,
+div#loan_set-group select {
+    background-color: #001a33;
+    color: #ffffff;
+    border: 1px solid var(--hovered-lighter-color);
+    border-radius: 4px;
+    padding: 5px;
+	margin-bottom: 10px;
+}
+
+div#loan_set-group a.add-row {
+    background-color: #81D4FA;
+    color: #012349;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div#loan_set-group a.add-row:hover {
+    background-color: #ffffff;
+    color: #012349;
+}
+
+
+
+
+#loan_set-0 {
+    background-color: var(--table-row-color);
+}
+
+th.column-loan_date, th.column-isbn,
+th.column-due_date, th.column-return_date,
+th.column-quantity {
+    background-color: var(--table-header-color);
+    color: #ECF0F1;
+}
+
+th:last-child {
+    background-color: var(--table-header-color);
+    color: white;
+}
+
+tr.add-row td{
+    background-color: var(--table-header-color) !important;
+    border: none !important
+}
+
+tr.add-row{
+    border: none
+}

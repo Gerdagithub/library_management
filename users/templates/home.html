@@ -1,18 +1,67 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}Home - LibSpot{% endblock title %}
 
-{% block title %}Home - Library Management{% endblock title %}
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/book-cards' %}"> {% endcomment %}
+{% endblock extra_styles %}
 
 {% block content %}
-<h1>Welcome to Library Management System</h1>
-<p>Manage your books and loans efficiently.</p>
-<div class="row">
-    <div class="col-md-6">
-        <a href="admin/books/" class="btn btn-primary btn-lg">View Books</a>
+    {% comment %} {% include 'partials/_navbar.html' with genres=genres %} {% endcomment %}
+
+    <div class="d-flex justify-content-center align-items-center m-4">
+        <img src="{% static 'images/LibSpot_logo-removebg-preview.png' %}" 
+            class="img-fluid logo" alt="Library Management System">
     </div>
-    <div class="col-md-6">
-        <a href="admin/loans/" class="btn btn-success btn-lg">Manage Loans</a>
-    </div>
-</div>
+
+    {% include 'partials/_search_home.html' with genres=genres search_form=search_form%}
+
+
+    {% comment %} <form method="get" class="search-form hidden" id="searchForm">
+        {{ search_form.as_p }}
+        <button type="submit" name="action" value="search" class="btn btn-primary">Search</button>
+    </form>
+
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Publication Date</th>
+                <th>Genre</th>
+                <th>Copies in Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.publication_date }}</td>
+                    <td>{{ book.genre }}</td>
+                    <td>{{ book.copies_in_stock }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">No books found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> {% endcomment %}
+
+
+    {% comment %} <form class="d-flex" role="search" method="get" action="/search/">
+        <input class="form-control me-2" type="search" name="q" placeholder="Search books..." aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+    </form> {% endcomment %}
+    
 {% endblock content %}
 
 

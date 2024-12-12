@@ -1,0 +1,50 @@
+.fields-dropdown-menu {
+    background-color: transparent; /* Matches the button background */
+    border: 1px solid #fff;
+    color: #fff; 
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    appearance: none; /* Removes default arrow styling for better customization */
+}
+
+/* .fields-dropdown-menu option {
+	background-color: var(--darker-color);
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #fff;
+    font-size: 1rem;
+    text-align: left;
+} */
+
+.fields-dropdown-menu option {
+    background-color: var(--darker-color);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.fields-dropdown-menu option:disabled {
+    color: gray; /* Gray text for the placeholder */
+    font-style: italic; /* Italicizes the placeholder */
+	border: none;
+}
+
+.fields-dropdown-menu option:hover {
+    background-color: #555 !important; /* Dark gray hover background */
+    color: var(--light-text-color); /* Keep the text white */
+    cursor: pointer; /* Show pointer cursor on hover */
+	border: none !important;
+	/* border: 1px solid white;  */
+	/* border-radius: 5px; */
+}
+
+.fields-dropdown-menu:active {
+    outline: none;
+    /* border: 1px solid white;  */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+	border: none !important;
+}

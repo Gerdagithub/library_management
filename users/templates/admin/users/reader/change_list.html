@@ -1,0 +1,31 @@
+{% extends "admin/change_list.html" %}
+
+{%load static%}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/_variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom-admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin/table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin/nav-sidebar.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="add-button-container">
+        {% if has_add_permission %}
+            <button type="button" 
+                class="btn btn-outline-light add-loan-button mb-2"
+                onclick="window.location.href='http://127.0.0.1:8000/admin/users/reader/add/';">
+                Add Reader
+            </button>
+        {% endif %}
+    </div>
+
+    <style>
+        .object-tools .addlink {
+            display: none !important;
+        }
+    </style>
+
+    {{ block.super }}
+{% endblock %}

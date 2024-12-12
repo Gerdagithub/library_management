@@ -1,0 +1,46 @@
+.offcanvas-genres-button {
+    background-color: transparent;
+    color: var(--darker-color);
+    border: none;
+}
+
+.offcanvas-genres-button:hover,
+.offcanvas-genres-button.active {
+    background-color: var(--hovered-lighter-color) !important;
+    color: var(--darker-color);
+}
+
+.offcanvas {
+    background-color: #1e293b;
+    color: white;
+}
+
+.offcanvas-header {
+    background-color: var(--hovered-lighter-color);
+    color: var(--darker-color);
+    border-bottom: 1px solid #4a5568;
+}
+
+.list-group-item {
+    background-color: transparent;
+    color: #e2e8f0;
+    border: 1px solid #4a5568;
+    border-radius: 5px;
+}
+
+.list-group-item:hover {
+    background-color: #4a5568;
+    color: #ffffff;
+}
+
+.list-group-item.active {
+    background-color: #4a5568;
+    color: #ffffff;
+    border-color: #4a5568;
+}
+
+.list-group-item:active, .list-group-item:focus {
+    border: none;
+    background-color: #4a5568 !important;
+    color: #ffffff;
+}

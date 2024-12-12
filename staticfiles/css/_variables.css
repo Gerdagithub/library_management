@@ -1,0 +1,14 @@
+:root {
+    --darker-color: #02213f;
+    --lighter-color: rgb(62, 224, 207);
+    --hovered-lighter-color: #3ac9bc;
+	--hovered-darker-color: #4a5568;
+    --main-text-color: #02213f;
+	--light-text-color: white;
+    --gradient-bg: linear-gradient(45deg, #40e0d0, #40e0d0);
+    --header-font-family: 'Georgia', serif;
+}
+
+/* h1 {
+    font-family: var(--header-font-family);
+} */

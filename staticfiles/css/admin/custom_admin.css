@@ -1,0 +1,39 @@
+
+
+/* Change the background color of the header */
+.header {
+    background-color: #34495E; /* Darker blue */
+    color: white; /* Text color */
+}
+
+/* Change the color of the main content area */
+.module, .content-main {
+    background-color: #1ABC9C; /* Greenish background */
+}
+
+/* Change the color of table headers */
+th {
+    background-color: #16A085; /* Greenish header background */
+    color: white; /* White text */
+}
+
+/* Change the color of buttons */
+.button, .submit-row input[type="submit"] {
+    background-color: #F39C12; /* Yellow button */
+    color: white; /* White text */
+}
+
+.button:hover {
+    background-color: #E67E22; /* Darker yellow on hover */
+}
+
+/* Customize the link color */
+a {
+    color: #9B59B6; /* Purple links */
+}
+
+/* Change the color of the action buttons */
+.actions {
+    background-color: #F39C12; /* Yellow background */
+    color: white;
+}
