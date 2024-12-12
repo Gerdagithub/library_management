@@ -11,6 +11,7 @@ class BookSearchHandler:
         self.search_form = SearchForm(get_params)
         self.results = model.objects.none()  # Default to no results
         # self.filtered_queryset = self.model.objects.all()
+        self.label = "All Books"
 
 
     def perform_search(self):
@@ -34,8 +35,10 @@ class BookSearchHandler:
     def get_context(self):
         """
         Return the search form and results for use in templates.
-        """
+        """            
+        
         return {
             'search_form': self.search_form,
             'results': self.results,
+            'label': self.label,
         }

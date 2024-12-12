@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now, timedelta
 from books.models import Book
 from users.models import Reader
+from django.core.exceptions import ValidationError
 
 class Loan(models.Model):
     loan_id = models.AutoField(primary_key=True)
@@ -46,8 +47,21 @@ class Loan(models.Model):
 
             # Deduct quantity from book stock if quantity_difference is positive
             # if quantity_difference > 0:
+            
+            
+            # if self.isbn.copies_in_stock < quantity_difference:
+            #     raise ValueError(f"Not enough copies of '{self.isbn.title}' in stock.")
+            from django.contrib import messages
+
             if self.isbn.copies_in_stock < quantity_difference:
-                raise ValueError(f"Not enough copies of '{self.isbn.title}' in stock.")
+                raise ValidationError({
+                    'quantity': f"Not enough copies of '{self.isbn.title}' in stock. "
+                                f"Available: {self.isbn.copies_in_stock}, Requested: {quantity_difference}."
+                })
+
+            
+
+            
             
             self.isbn.copies_in_stock -= quantity_difference
             self.isbn.save()

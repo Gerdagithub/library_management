@@ -4,10 +4,12 @@
 
 {% block content %}
 	{% comment %} {% include 'partials/_navbar.html' with genres=genres %} {% endcomment %}
-	<h1 class>
+	{% comment %} <h1 class>
 		All LibSpot Books
-	</h1>
+	</h1> {% endcomment %}
 
-	{%include 'partials/_display_books.html' with books=books genres=genres%}
+	{% comment %} <h1 style="color:white;"> {{selected_genre}} <- </h1> {% endcomment %}
+
+	{%include 'partials/_display_books.html' with selected_genre=selected_genre books=books genres=genres%}
 
 {% endblock %}
